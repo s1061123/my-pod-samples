@@ -1,0 +1,19 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-nginx
+#  labels:
+#    service.kubernetes.io/service-proxy-name: multus-proxy
+spec:
+  selector:
+    app: my-nginx
+  #type: ClusterIP
+  #clusterIP: None #for headless service
+  #type: LoadBalancer
+  #type: NodePort
+  #type: ExternalName
+  #externalName: my.database.example.com
+  ports:
+  - protocol: TCP
+    port: 80
