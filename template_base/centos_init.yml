@@ -1,0 +1,13 @@
+# terination 12.853 total
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos
+spec:
+  containers:
+  - name: main
+    image: docker.io/centos/tools:latest
+    command:
+    - /sbin/init
+  terminationGracePeriodSeconds: 3

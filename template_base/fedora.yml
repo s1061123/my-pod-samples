@@ -1,0 +1,15 @@
+# terination 16.667 total
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fedora-min
+spec:
+  containers:
+  - name: main
+    image: registry.fedoraproject.org/fedora:33
+    command:
+    - bash
+    - -c
+    - 'sleep infinity'
+  terminationGracePeriodSeconds: 3

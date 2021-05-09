@@ -1,0 +1,39 @@
+---
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: bandwidth
+spec: 
+  config: '{
+            "cniVersion": "0.3.1",
+            "plugins": [{
+                "type": "macvlan",
+                "capabilities": { "ips": true },
+                "master": "eth1",
+                "mode": "bridge",
+                "ipam": {
+                    "type": "static"
+                }
+	    },
+            {
+                "type": "dump",
+		"file": "/tmp/cni_dump.log",
+                "capabilities": { "bandwidth": true, "ips": true }
+	    },
+            {
+                "type": "bandwidth",
+                "capabilities": { "bandwidth": true }
+            }]
+        }'
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bandwidth
+  annotations:
+    k8s.v1.cni.cncf.io/networks: '[
+            { "name": "bandwidth",
+              "ips": [ "10.1.1.104/24" ] }
+    ]'
+    kubernetes.io/ingress-bandwidth: 0.01M
+    kubernetes.io/egress-bandwidth: 0.01M

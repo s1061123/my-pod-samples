@@ -1,0 +1,11 @@
+spec:
+  containers:
+  - name: main
+    image: docker.io/debian:buster-slim
+    command:
+    - bash
+    - -c
+    - 'sleep infinity'
+    securityContext:
+      privileged: true
+  terminationGracePeriodSeconds: 3

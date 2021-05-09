@@ -1,0 +1,11 @@
+spec:
+  containers:
+  - name: main
+    image: registry.fedoraproject.org/fedora-minimal:33
+    command:
+    - bash
+    - -c
+    - 'sleep infinity'
+    securityContext:
+      privileged: true
+  terminationGracePeriodSeconds: 3

@@ -1,0 +1,9 @@
+spec:
+  containers:
+  - name: main
+    image: docker.io/centos/tools:latest
+    command:
+    - /sbin/init
+    securityContext:
+      privileged: true
+  terminationGracePeriodSeconds: 3

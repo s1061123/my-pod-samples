@@ -1,0 +1,15 @@
+# terination 16.667 total
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debian
+spec:
+  containers:
+  - name: main
+    image: docker.io/debian:buster
+    command:
+    - bash
+    - -c
+    - 'sleep infinity'
+  terminationGracePeriodSeconds: 3

@@ -1,0 +1,15 @@
+# terination 11.563 total
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos
+spec:
+  containers:
+  - name: main
+    image: docker.io/centos/tools:latest
+    command:
+    - bash
+    - -c
+    - 'sleep infinity'
+  terminationGracePeriodSeconds: 3
